@@ -1,0 +1,11 @@
+[Unit]
+Description=Backup archive viewer users and configuration
+
+[Service]
+Type=oneshot
+User=archive
+Group=archive
+Environment=VIEWER_DATA_DIR=/opt/archive-data
+WorkingDirectory=/opt/archive-viewer
+ExecStart=/opt/archive-viewer/.venv/bin/python /opt/archive-viewer/deploy/backup_data.py --output-dir /opt/archive-backups
+UMask=0077
