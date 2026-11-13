@@ -2,6 +2,14 @@
 
 独立部署的只读 Web 应用，通过 PostgreSQL 查询企业微信会话存档的 `messages`、`media_files` 表。无需会话存档采集项目的源码或配置文件。
 
+## 部署与运维文档
+
+- [Ubuntu 22.04 首次安装部署](deploy/UBUNTU-22.04.md)
+- [升级维护、每日备份、30 天保留与恢复](deploy/OPERATIONS.md)
+- [每日代码与本地持久化数据备份脚本](deploy/backup_project.py)
+
+查看器备份包不含外部 PostgreSQL 会话数据库及 `VIEWER_MEDIA_ROOT` 媒体目录；这两部分需单独备份。
+
 ## 启动
 
 安装 Python 3.11+ 和 uv。Ubuntu 部署时在 `/opt/archive-data/.env` 填写数据库连接（参见 `.env.example`）；Windows 本地运行仍可用项目目录的 `.env`，然后启动：
